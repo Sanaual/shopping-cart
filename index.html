@@ -113,15 +113,22 @@
          const countNumber = parseFloat(count) + 1;
         
          document.getElementById(id).value = countNumber;
-         const mobilePrice = document.getElementById("mobilePrice").innerText;
-         const mobilePriceAmount = parseFloat(mobilePrice);
-         const mobilePriceTotalAmount = 1219 * countNumber;
+
+         const mobilePriceTotalAmount = updateMobilePrice("mobilePrice",countNumber);
+         
+         // const mobilePrice = document.getElementById("mobilePrice").innerText;
+         // const mobilePriceAmount = parseFloat(mobilePrice);
+         // const mobilePriceTotalAmount = 1219 * countNumber;
          document.getElementById("mobilePrice").innerText = mobilePriceTotalAmount;
 
          const subTotal = document.getElementById("subtotal").innerText;
          const mobileSubTotal = parseFloat(subTotal);
+         const casePrice1 = document.getElementById("casePrice").innerText;
+         const casePriceAmount1 = parseFloat(casePrice1);
          const mobileSubTotalAmount = 1219 * countNumber;
-         document.getElementById("subtotal").innerText = mobileSubTotalAmount;
+         const mobileSubTotalAmount1 = mobileSubTotalAmount + casePriceAmount1;
+        // const mobileSubTotalAmount1 = mobileSubTotalAmount + caseSubTotalAmount;
+         document.getElementById("subtotal").innerText = mobileSubTotalAmount1;
       }
 
       function countMinus(id){
@@ -130,17 +137,24 @@
          if(countNumber >= 0){
             document.getElementById(id).value = countNumber;
 
+            const mobilePriceTotalAmount = updateMobilePrice1("mobilePrice");
+
             
-            const mobilePrice = document.getElementById("mobilePrice").innerText;
-            const mobilePriceAmount = parseFloat(mobilePrice);
-            const mobilePriceTotalAmount = mobilePriceAmount - 1219;
+            // const mobilePrice = document.getElementById("mobilePrice").innerText;
+            // const mobilePriceAmount = parseFloat(mobilePrice);
+            // const mobilePriceTotalAmount = mobilePriceAmount - 1219;
             document.getElementById("mobilePrice").innerText = mobilePriceTotalAmount;
 
             
             const subTotal = document.getElementById("subtotal").innerText;
             const mobileSubTotal = parseFloat(subTotal);
+            
+            const casePrice2 = document.getElementById("casePrice").innerText;
+            const casePriceAmount2 = parseFloat(casePrice2);
             const mobileSubTotalAmount = mobileSubTotal - 1219;
-            document.getElementById("subtotal").innerText = mobileSubTotalAmount;
+            const mobileSubTotalAmount2 = mobileSubTotalAmount + casePriceAmount2;
+            //const mobileSubTotalAmount1 = mobileSubTotalAmount + caseSubTotalAmount;
+            document.getElementById("subtotal").innerText = mobileSubTotalAmount2;
          }
       }
 
@@ -152,15 +166,21 @@
          const countNumber = parseFloat(count) + 1;
         
          document.getElementById(id).value = countNumber;
-         const casePrice = document.getElementById("casePrice").innerText;
-         const casePriceAmount = parseFloat(casePrice);
-         const casePriceTotalAmount = casePriceAmount + 59;
+
+         const casePriceTotalAmount = updateCasePrice("casePrice");
+
+         // const casePrice = document.getElementById("casePrice").innerText;
+         // const casePriceAmount = parseFloat(casePrice);
+         // const casePriceTotalAmount = casePriceAmount + 59;
          document.getElementById("casePrice").innerText = casePriceTotalAmount;
 
          const subTotal1 = document.getElementById("subtotal").innerText;
          const caseSubTotal = parseFloat(subTotal1);
+         const mobelePrice1 = document.getElementById("mobilePrice").innerText;
+         const mobilePriceAmount1 = parseFloat(mobilePrice1);
          const caseSubTotalAmount = 59 * countNumber;
-         document.getElementById("subtotal").innerText = caseSubTotalAmount;
+         const caseSubTotalAmount1 = caseSubTotalAmount + mobilePriceAmount1;
+         document.getElementById("subtotal").innerText = caseSubTotalAmount1;
       }
 
       function countMinus1(id){
@@ -168,16 +188,50 @@
          const countNumber = parseFloat(count) - 1;
          if(countNumber >= 0){
             document.getElementById(id).value = countNumber;
-            const casePrice = document.getElementById("casePrice").innerText;
-            const casePriceAmount = parseFloat(casePrice);
-            const casePriceTotalAmount = casePriceAmount - 59;
+            // const casePrice = document.getElementById("casePrice").innerText;
+            // const casePriceAmount = parseFloat(casePrice);
+            // const casePriceTotalAmount = casePriceAmount - 59;
+            const casePriceTotalAmount = updateCasePrice1("casePrice");
             document.getElementById("casePrice").innerText = casePriceTotalAmount;
 
             const subTotal1 = document.getElementById("subtotal").innerText;
             const caseSubTotal = parseFloat(subTotal1);
-            const caseSubTotalAmount = caseSubTotal - 59;
-            document.getElementById("subtotal").innerText = caseSubTotalAmount;
+            const mobelePrice2 = document.getElementById("mobilePrice").innerText;
+            const mobilePriceAmount2 = parseFloat(mobilePrice2);
+            const caseSubTotalAmount22 = caseSubTotal - 59;
+            const caseSubTotalAmount2 = caseSubTotalAmount22 + mobilePriceAmount2;
+            document.getElementById("subtotal").innerText = caseSubTotalAmount2;
          }
+      }
+
+      function updateMobilePrice(id, countNumber)
+      {
+         const mobilePrice = document.getElementById("mobilePrice").innerText;
+         const mobilePriceAmount = parseFloat(mobilePrice);
+         const mobilePriceTotalAmount = 1219 * countNumber;
+         return mobilePriceTotalAmount;
+      }
+      function updateMobilePrice1(id)
+      {
+         const mobilePrice = document.getElementById("mobilePrice").innerText;
+            const mobilePriceAmount = parseFloat(mobilePrice);
+            const mobilePriceTotalAmount = mobilePriceAmount - 1219;
+            return mobilePriceTotalAmount;
+      }
+
+      function updateCasePrice(id)
+      {
+         const casePrice = document.getElementById(id).innerText;
+         const casePriceAmount = parseFloat(casePrice);
+         const casePriceTotalAmount = casePriceAmount + 59;
+         return casePriceTotalAmount;
+      }
+      function updateCasePrice1(id)
+      {
+         const casePrice = document.getElementById(id).innerText;
+            const casePriceAmount = parseFloat(casePrice);
+            const casePriceTotalAmount = casePriceAmount - 59;
+            return casePriceTotalAmount;
       }
       
    </script>
